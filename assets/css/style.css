@@ -58,7 +58,7 @@ body {
 
 .input_section>h2 {
     text-align: center;
-    color: #5DADE2;
+    color: #000000;
 }
 
 .input_section>form>button {
@@ -109,12 +109,17 @@ body {
 }
 
 #checklist:hover {
-    background: rgb(66, 163, 66);
+    background: #F4D03F;
+    color: white;
+    }
+
+    .search #checklist:hover {
+        background: #5DADE2;
     color: white;
 }
 
 .completeBookshelfList #checklist:hover {
-    background: #F4D03F;
+    background: rgb(66, 163, 66);
     color: white;
 }
 
@@ -164,13 +169,14 @@ button {
 }
 
 .input_section>form>.input_inline>label {
-    color: #5DADE2;
+    color: #000000;
     font-weight: bold;
     margin-right: 10px;
 }
 
 .status {
-    display: flex;
+    white-space: nowrap;
+    width: 100%;
     font-size: 12px;
     padding: 3px 5px 3px 5px;
     border-radius: 5px;
@@ -198,7 +204,6 @@ button {
     display: flex;
     flex-direction: column;
     width: 96%;
-    align-items: center;
 }
 
 .incompleteBookshelfList {
@@ -332,9 +337,17 @@ p {
     padding: 7px;
 }
 
+#searchSubmit:hover {
+    background: #aaabaf;
+}
+
 #searchSubmit i {
     font-size: 17px;
     color: #2f3640;
+}
+
+#searchSubmit i:hover {
+    color: #fff;
 }
 
 .search-txt {
@@ -360,6 +373,12 @@ p {
     .second{
         align-items: flex-start;
         padding-right: 10px;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    .search .actionButton {
+        flex-direction: column;
     }
 }
 
