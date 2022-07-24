@@ -26,7 +26,7 @@
                     <div class="image">
                         <img src="assets/img/vector.png" alt="">
                     </div>
-                    <h2>Masukkan Buku Baru</h2>
+                    <h2>Input Buku Baru</h2>
                     <form id="inputBook">
                         <div class="input">
                             <label for="inputBookTitle">Judul</label>
@@ -44,17 +44,17 @@
                             <label for="inputBookCategory">Kategori</label>
                             <select name="bookCategory" id="inputBookCategory" class="bookCategory" required>
                                 <option value="" selected>Choose a category...</option>
-                                <option value="Arts & Photography">Arts & Photography</option>
-                                <option value="Biographies & Memoirs">Biographies & Memoirs</option>
-                                <option value="Business & Money">Business & Money</option>
-                                <option value="Children's Book">Children's Book</option>
-                                <option value="Cookbooks, Food & Wine">Cookbooks, Food & Wine</option>
-                                <option value="Crafts, Hobbies & Home">Crafts, Hobbies & Home</option>
-                                <option value="Health, Fitness & Dieting">Health, Fitness & Dieting</option>
-                                <option value="Literature & Fiction">Literature & Fiction</option>
-                                <option value="Romance">Romance</option>
-                                <option value="Science & Math">Science & Math</option>
-                                <option value="Self Help">Self Help</option>
+                                <option value="Pendidikan">Pendidikan</option>
+                                <option value="Politik">Politik</option>
+                                <option value="Petualangan">Petualangan</option>
+                                <option value="Komedia">Komedi</option>
+                                <option value="Anak-anak">Anak-anak</option>
+                                <option value="Dewasa">Dewasa</option>
+                                <option value="Horor">Horor</option>
+                                <option value="Misteri">Misteri</option>
+                                <option value="Romantis">Romantis</option>
+                                <option value="Thriller">Thriller</option>
+                                <option value="Sejarah">Sejarah</option>
                             </select>
                         </div>
                         <div class="input">
@@ -65,58 +65,22 @@
                             <label for="inputBookIsComplete">Selesai dibaca</label>
                             <input id="inputBookIsComplete" type="checkbox">
                         </div>
-                        <button id="bookSubmit" type="submit">Masukkan Buku ke rak <span>Belum selesai
+                        <button id="bookSubmit" type="submit">Masukkan buku ke rak <span>Belum selesai
                                 dibaca</span></button>
                     </form>
                 </div>
             </div>
             <div class="card second">
                 <div class="searchCard">
-                    <div class="search ">
+                    <div class="search" id="search">
                         <div class="search-box shadow">
-                            <input class="search-txt" type="text" name="" placeholder="Ketik judul buku disini..">
+                            <input id="search-txt" class="search-txt" type="text" name=""
+                                placeholder="Ketik judul buku disini..">
                             <button id="searchSubmit" type="submit">
                                 <i class="fas fa-search"></i>
                             </button>
                         </div>
-                        <p>Hasil pencarian untuk <b>Laskar</b></p>
                         <div class="BookCard">
-                            <div class="Book shadow">
-                                <div class="BookCover">
-                                    <img src="https://visme.co/blog/wp-content/uploads/2021/06/sophie-kinsella-the-undomestic-goddess-book-cover-example.jpeg"
-                                        alt="">
-                                </div>
-                                <div class="bookDetail">
-                                    <div class="BookTitle">Laskar Pelangi</div>
-                                    <div class="BookAuthor">Saleh</div>
-                                    <div class="BookGenre">Pendidikan</div>
-                                    <div class="status Incomplete">Belum Selesai</div>
-                                </div>
-                                <div class="actionButton">
-                                    <button id="delete">
-                                        <i class="fa fa-trash"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="BookCard">
-                            <div class="Book shadow">
-                                <div class="BookCover">
-                                    <img src="https://visme.co/blog/wp-content/uploads/2021/06/the-godfather-book-cover.png"
-                                        alt="">
-                                </div>
-                                <div class="bookDetail">
-                                    <div class="BookTitle">The Godfather</div>
-                                    <div class="BookAuthor">Saleh</div>
-                                    <div class="BookGenre">Pendidikan</div>
-                                    <div class="status Complete">Selesai Dibaca</div>
-                                </div>
-                                <div class="actionButton">
-                                    <button id="delete">
-                                        <i class="fa fa-trash"></i>
-                                    </button>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
