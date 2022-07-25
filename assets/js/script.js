@@ -12,10 +12,6 @@ inputBookIsComplete.addEventListener('change', function () {
     }
 })
 
-function generateId() {
-    return +new Date();
-}
-
 function generateBookObject(id, title, author, year, category, image, isCompleted) {
     return {
         id,
@@ -46,6 +42,14 @@ function findBookIndex(bookId) {
     return -1;
 }
 
+function findBookTitle(bookTitle) {
+    for (const Booktitle in books) {
+        if (Booktitle.title === bookTitle) {
+            return Booktitle;
+        }
+    }
+    return 1;
+}
 
 /**
  * Fungsi ini digunakan untuk memeriksa apakah localStorage didukung oleh browser atau tidak
@@ -74,7 +78,7 @@ function saveData() {
 
 /**
  * Fungsi ini digunakan untuk memuat data dari localStorage
- * Dan memasukkan data hasil parsing ke variabel {@see todos}
+ * Dan memasukkan data hasil parsing ke variabel {@see books}
  */
 function loadDataFromStorage() {
     const serializedData /* string */ = localStorage.getItem(STORAGE_KEY);
@@ -155,7 +159,7 @@ function makeBook(bookObject) {
         buttonDelete.setAttribute('id', `delete`);
         buttonDelete.append(iconDelete);
         buttonDelete.addEventListener('click', function () {
-            removeBookFromCompleted(id);
+            removeBook(id);
         });
 
         const actionButton = document.createElement('div');
@@ -175,7 +179,7 @@ function makeBook(bookObject) {
         buttonDelete.setAttribute('id', `delete`);
         buttonDelete.append(iconDelete);
         buttonDelete.addEventListener('click', function () {
-            removeBookFromCompleted(id);
+            removeBook(id);
         });
 
         const actionButton = document.createElement('div');
@@ -277,7 +281,6 @@ searchSubmit.addEventListener("click", function (event) {
 
                 const buttonDoubleChecklist = document.createElement('button');
                 buttonDoubleChecklist.setAttribute('id', `checklist`);
-                buttonDoubleChecklist.setAttribute('class', `green`);
                 buttonDoubleChecklist.append(iconDoubleChecklist);
                 buttonDoubleChecklist.addEventListener('click', function () {
                     undoBookFromCompleted(bookItem.id);
@@ -287,7 +290,7 @@ searchSubmit.addEventListener("click", function (event) {
                 buttonDelete.setAttribute('id', `delete`);
                 buttonDelete.append(iconDelete);
                 buttonDelete.addEventListener('click', function () {
-                    removeBookFromCompleted(bookItem.id);
+                    removeBook(bookItem.id);
                 });
 
                 const actionButton = document.createElement('div');
@@ -345,7 +348,7 @@ searchSubmit.addEventListener("click", function (event) {
                 buttonDelete.setAttribute('id', `delete`);
                 buttonDelete.append(iconDelete);
                 buttonDelete.addEventListener('click', function () {
-                    removeBookFromCompleted(bookItem.id);
+                    removeBook(bookItem.id);
                 });
 
                 const actionButton = document.createElement('div');
@@ -372,14 +375,89 @@ function addBookToCompleted(bookId) {
     saveData();
 }
 
-function removeBookFromCompleted(bookId) {
+function removeBook(bookId) {
     const bookTarget = findBookIndex(bookId);
+    const container = document.querySelector('.container');
 
     if (bookTarget === -1) return;
 
-    books.splice(bookTarget, 1);
-    document.dispatchEvent(new Event(RENDER_EVENT));
-    saveData();
+    const input = document.createElement('input');
+    input.setAttribute('type', `checkbox`);
+    input.setAttribute('id', `check`);
+    
+    const icon = document.createElement('i');
+    icon.classList.add('fa', 'fa-exclamation');
+
+    const Popup = document.createElement('div');
+    Popup.classList.add('popup_box');
+    Popup.style.opacity = '1';
+    Popup.style.position = 'fixed';
+    Popup.style.pointerEvents = 'auto';
+    Popup.style.transform = 'translate(-50%, -50%) scale(1)';
+    
+    const description = document.createElement('h1');
+    description.innerText = 'Apakah kamu yakin ingin menghapus buku ini?';
+
+    const label = document.createElement('label');
+    label.innerText = 'Jika yakin, klik button "Hapus"';
+
+    const background = document.createElement('div');
+    background.classList.add('background');
+    background.style.opacity = '1';
+    background.style.pointerEvents = 'auto';
+
+    const btnCancel = document.createElement('a');
+    btnCancel.setAttribute('class', `btn1`);
+    btnCancel.innerText = 'Batal';
+    btnCancel.addEventListener('click', function (event) {
+        event.preventDefault()
+        Popup.style.opacity = '0';
+        Popup.style.pointerEvents = 'none';
+        background.style.opacity = '0';
+        background.style.pointerEvents = 'none';
+    });
+
+    const toast = document.createElement('div');
+    toast.classList.add('toast');
+
+    const btnDelete = document.createElement('a');
+    btnDelete.setAttribute('class', `btn2`);
+    btnDelete.innerText = 'Hapus';
+    btnDelete.addEventListener('click', function (event) {
+        event.preventDefault()
+        books.splice(bookTarget, 1);
+        document.dispatchEvent(new Event(RENDER_EVENT));
+        saveData();
+        Popup.style.opacity = '0';
+        Popup.style.pointerEvents = 'none';
+        background.style.opacity = '0';
+        background.style.pointerEvents = 'none';
+
+        toast.style.opacity = '1';
+        toast.style.top = '10px';
+        toast.style.visibility = 'visible';
+        toast.style.borderColor = '#00c02b';
+        toast.style.background = '#00c02b';
+        toast.style.color = '#fff';
+        toast.innerText = 'Buku berhasil dihapus';
+        document.body.append(toast);
+
+        setTimeout(() => {
+            toast.style.opacity = '0';
+            toast.style.top = '0px';
+            toast.style.visibility = 'hidden';
+            toast.style.borderColor = 'transparent';
+            toast.style.background = 'transparent';
+        }, 1500);
+    });
+
+    const button = document.createElement('button');
+    button.setAttribute('class', `btns`);
+    button.append(btnDelete, btnCancel);
+
+    Popup.append(icon, description, label, button);
+
+    container.append(input, background, Popup);
 }
 
 function undoBookFromCompleted(bookId) {
