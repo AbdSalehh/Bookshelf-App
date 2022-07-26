@@ -24,6 +24,9 @@ Repository ini merupakan project untuk aplikasi Bookshelf yang dapat digunakan d
 <p align="middle"><img alt="GIF" src="https://github.com/Saleh-387/Bookshelf-App/blob/master/assets/img/Dekstop.png" width="550" height="300"/></p>
 
 ## 🎯Demo
+
+🎏 Jika ingin mencoba klik link 👉 <a href="https://saleh-387.github.io/Bookshelf-App/">disini</a>
+
 📌**Tambah buku baru**
 <p align="middle"><img alt="GIF" src="https://github.com/Saleh-387/Bookshelf-App/blob/master/assets/img/Tambah%20Buku.gif" width="550" height="300"/></p>
 
