@@ -211,12 +211,34 @@ document.addEventListener('DOMContentLoaded', function () {
             isComplete: bookIsCompleted
         }
 
+        const toast = document.createElement('div');
+        toast.classList.add('toast');
         if (typeof Storage !== undefined) {
             const bookObject = generateBookObject(newBook.id, newBook.title, newBook.author, newBook.year, newBook.category, newBook.image, newBook.isComplete);
             books.push(bookObject)
             document.dispatchEvent(new Event(RENDER_EVENT));
             saveData();
             localStorage.setItem(STORAGE_KEY, JSON.stringify(books));
+
+            toast.style.opacity = '1';
+            toast.style.top = '10px';
+            toast.style.visibility = 'visible';
+            toast.style.maxWidth = '400px';
+            toast.style.borderColor = '#00c02b';
+            toast.style.background = '#00c02b';
+            toast.style.color = '#fff';
+            toast.style.justifyContent = 'center';
+            toast.style.alignItems = 'center';
+            toast.innerHTML = `Buku  <b>&nbsp;${newBook.title}&nbsp;</b>  berhasil ditambahkan`;
+            document.body.append(toast);
+
+            setTimeout(() => {
+                toast.style.opacity = '0';
+                toast.style.top = '0px';
+                toast.style.visibility = 'hidden';
+                toast.style.borderColor = 'transparent';
+                toast.style.background = 'transparent';
+            }, 1500);
         } else {
             alert("Browser yang Anda gunakan tidak mendukung Web Storage")
         }
@@ -393,8 +415,7 @@ function removeBook(bookId) {
     Popup.style.opacity = '1';
     Popup.style.position = 'fixed';
     Popup.style.pointerEvents = 'auto';
-    Popup.style.transform = 'translate(-50%, -50%) scale(1)';
-    
+
     const description = document.createElement('h1');
     description.innerText = 'Apakah kamu yakin ingin menghapus buku ini?';
 
@@ -436,8 +457,9 @@ function removeBook(bookId) {
         toast.style.opacity = '1';
         toast.style.top = '10px';
         toast.style.visibility = 'visible';
-        toast.style.borderColor = '#00c02b';
-        toast.style.background = '#00c02b';
+        toast.style.maxWidth = '200px';
+        toast.style.borderColor = '#FA532E';
+        toast.style.background = '#FA532E';
         toast.style.color = '#fff';
         toast.innerText = 'Buku berhasil dihapus';
         document.body.append(toast);
