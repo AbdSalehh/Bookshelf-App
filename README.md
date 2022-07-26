@@ -14,3 +14,4 @@ Repository ini merupakan project untuk aplikasi Bookshelf yang dapat digunakan d
 - 📫 Fitur untuk mencari buku;
 
 ## 🎯Demo
+<p><img align="center" alt="GIF" src="https://github.com/Saleh-387/Bookshelf-App/blob/master/assets/img/Mobile.gif" width="200" height="400"/></p>
