@@ -89,6 +89,7 @@ body {
 
 ::placeholder {
     padding-left: 3px;
+    font-size: 12px;
 }
 
 .actionButton{
