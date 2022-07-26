@@ -13,6 +13,13 @@ Repository ini merupakan project untuk aplikasi Bookshelf yang dapat digunakan d
 - 💬 Fitur untuk memindahkan buku dari unread ke read atau sebaliknya;
 - 📫 Fitur untuk mencari buku;
 
+## 🎯User Interface
+📌**Mobile**
+<p align="middle" style="padding:10px;"><img alt="GIF" src="https://github.com/Saleh-387/Bookshelf-App/blob/master/assets/img/Mobile1.png" width="200" height="400"/>&numsp;
+ <img alt="GIF" src="https://github.com/Saleh-387/Bookshelf-App/blob/master/assets/img/Mobile2.png" width="200" height="400"/></p>
+
+📌**Dekstop**
+<p align="middle" style="padding:10px;"><img alt="GIF" src="https://github.com/Saleh-387/Bookshelf-App/blob/master/assets/img/Dekstop.png" width="700" height="400"/></p>
+
 ## 🎯Demo
-<p><img align="left" alt="GIF" src="https://github.com/Saleh-387/Bookshelf-App/blob/master/assets/img/Mobile.gif" width="200" height="400"/></p>
-<p><img align="right" alt="GIF" src="https://github.com/Saleh-387/Bookshelf-App/blob/master/assets/img/Dekstop.gif" width="600" height="350"/></p>
+📌**Tambah buku baru**
