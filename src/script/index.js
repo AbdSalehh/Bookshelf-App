@@ -406,7 +406,7 @@ function removeBook(bookId) {
     const input = document.createElement('input');
     input.setAttribute('type', `checkbox`);
     input.setAttribute('id', `check`);
-    
+
     const icon = document.createElement('i');
     icon.classList.add('fa', 'fa-exclamation');
 
