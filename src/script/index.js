@@ -32,7 +32,9 @@ function makeBook(bookObject) {
 
   bookCard.innerHTML = `
     <div class="BookCover">
-      <img src="${image}">
+      <img src="${image}" 
+            onerror="this.onerror=null; this.src='./assets/img/book-cover.jpg';" 
+            alt="Book Cover">
     </div>
     <div class="bookDetail">
       <div class="BookTitle">${title}</div>
@@ -122,7 +124,9 @@ searchSubmit.addEventListener("click", function (event) {
 
     bookCard.innerHTML = `
       <div class="BookCover">
-        <img src="${book.image}">
+        <img src="${book.image}" 
+            onerror="this.onerror=null; this.src='./assets/img/book-cover.jpg';" 
+            alt="Book Cover">
       </div>
       <div class="bookDetail">
         <div class="bookTitle">${book.title}</div>

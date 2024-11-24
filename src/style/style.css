@@ -210,6 +210,10 @@ button {
   width: 96%;
 }
 
+.BookCover img {
+  object-fit: cover;
+}
+
 .incompleteBookshelfList {
   width: 48.5%;
   margin-right: 5px;

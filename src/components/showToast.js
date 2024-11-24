@@ -13,7 +13,7 @@ function showToast(message, color, duration = 1500) {
       borderColor: "transparent",
       background: "transparent",
     });
-  }, 1000000);
+  }, duration);
 }
 
 export default showToast;
